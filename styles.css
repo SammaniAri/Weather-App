@@ -1,3 +1,13 @@
+body{
+    background-image: url("https://static.toiimg.com/photo/msid-70166645/70166645.jpg");
+    /*display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .day {
     font-size: large;
     color: black;
@@ -30,6 +40,7 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    
   }
 
   button {

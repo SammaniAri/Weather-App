@@ -1,6 +1,6 @@
 "use strict";
-async function getData() {
-    const res = await fetch("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=04c8beabeded4281662ceda5a1cce41c&units=metric");
+async function getData(city) {
+    const res = await fetch("http://api.openweathermap.org/data/2.5/weather?q="+ city + "&APPID=04c8beabeded4281662ceda5a1cce41c&units=metric");
     const data = await res.json();
   
     const heading =document.getElementById("heading");
@@ -12,8 +12,26 @@ async function getData() {
   let lowestTemperature= (data.main.temp_min);
   let highestTemperature=(data.main.temp_max);
 
-  subheading2.innerHTML =lowestTemperature + " ℃ / " +highestTemperature + "℃";
+  subheading2.innerHTML ="min " + lowestTemperature + " ℃ / " + "max " +highestTemperature + " ℃";
    
     //document.body.append(img);
   }
-  getData();
+
+
+   //new city submit from
+let changeCityForm = document.getElementById("changeCityForm");
+changeCityForm.onsubmit = function (event) {
+  event.preventDefault();
+  console.log(changeCityForm.elements.changeCity.value);
+  let newCity = changeCityForm.elements.changeCity.value;
+  getData(newCity);
+};
+
+
+  getData("London");
+  //event listener, button id, function ``get data''
+  //"getQuote" --> getData
+  //btn.addEventListener("click", getQuote);
+
+  //create a textbox next to 'change city ' button
+  //documentation of API https://openweathermap.org/current
