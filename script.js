@@ -25,6 +25,7 @@ changeCityForm.onsubmit = function (event) {
   console.log(changeCityForm.elements.changeCity.value);
   let newCity = changeCityForm.elements.changeCity.value;
   getData(newCity);
+  changeCityForm.elements.changeCity.value="";
 };
 
 
